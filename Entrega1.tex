@@ -7,9 +7,10 @@
 \graphicspath{{images/}} %configuring the graphicx package
 
 % Preambulos
-\title{\textbf{Universidad Catolica "Nuestra señora de la Asuncion" \\ [1ex] \large
-Facultad de ciencias y tecnologia \\  Departamento de electronica e informatica}}
-
+\title{\textbf{Universidad Catolica "Nuestra señora de la Asuncion" \\ 
+[1ex] \large Facultad de ciencias y tecnologia \\ 
+Departamento de electronica e informatica \\
+\textit{Trabajo practico Entrega 1 - Mineria de datos}}}
 \author{Alain Vega}
 \date{11 de septiembre del 2023}
 % Logo de la catolica
@@ -28,24 +29,74 @@ Facultad de ciencias y tecnologia \\  Departamento de electronica e informatica}
 \newpage
 
 % Contenidos
-\section{Caso de estudio: }
+\section{Caso de estudio: Insuficiencia cardiaca}
 \subsection{Problema}
+Las enfermedades cardiovasculares (ECV) son la principal causa de muerte a nivel mundial, 
+cobrando la vida de aproximadamente 17.9 millones de personas cada año, 
+lo que representa el 31\% de todas las muertes en todo el mundo. 
+Cuatro de cada 5 muertes por ECV son causadas por ataques cardíacos y accidentes cerebrovasculares, 
+y un tercio de estas muertes ocurren prematuramente en personas menores de 70 años. 
+
+La insuficiencia cardíaca es un evento común causado por las ECV.
+Las personas con enfermedades cardiovasculares o que tienen un alto riesgo cardiovascular 
+(debido a la presencia de uno o más factores de riesgo como hipertensión, diabetes, 
+hiperlipidemia o enfermedades ya establecidas) necesitan una detección temprana y gestión, 
+en la cual un modelo de aprendizaje automático puede ser de gran ayuda.
 \section{Determinar objetivos del negocio}
 \subsection{Background}
+
 \subsection{Objetivos del negocio}
+  \begin{itemize}
+    \item{\textbf{Reducción de costos de atención médica: }
+    al prevenir diagnósticos fallidos y tratamientos innecesarios, se reducen los costos
+    asociados con el tratamiento de insuficiencia cardíaca y enfermedades relacionadas.}
+    \item{\textbf{Mejorar la atención médica:} 
+    al identificar de manera más efectiva a aquellos en riesgo de insuficiencia cardíaca. 
+    Esto conlleva a un tratamiento más oportuno y eficaz.}
+    \item{\textbf{Aumentar la calidad de vida de los pacientes:} 
+    al permitirles recibir atención preventiva y seguimiento temprano gracias a la prediccion.}
+  \end{itemize}
 \subsection{Criterios de exito del negocio}
+  \begin{itemize}
+    \item{\textbf{Precision del modelo: }obtener un modelo con una fiabilidad del 90\%} 
+    \item{\textbf{Reduccion de costos: }dismunir los costos medicos un x\%}
+    \item{\textbf{Impacto en la vida de los pacientes: }afectar positivamente la calidad de vida
+    de los pacientes.}
+  \end{itemize}
 \section{Valoracion de la situacion}
 \subsection{Inventario de recursos}
+Se cuenta con los siguientes datos medicos: \emph{edad, sexo, tipo de dolor en el pecho, 
+presión arterial en reposo, colesterol, azúcar en sangre en ayunas, 
+resultados del electrocardiograma en reposo, frecuencia cardíaca máxima alcanzada, 
+angina inducida por el ejercicio, pico antiguo = ST, 
+pendiente del segmento ST durante un ejercicio físico máximo en una prueba de esfuerzo cardíaco, 
+sufrio de insuficiencia cardiaca.}
+
+Que serviran para el entrenamiento y pruebas del modelo.
 \subsection{Requisitos, supuestos y restricciones}
+\begin{itemize}
+  \item{\textbf{Requisitos: }deteccion temprana de posible insuficiencia cardiaca
+  con una tasa de falsos negativos cada vez menor en proporcion a la
+  cantidad de pacientes analizados.} 
+  \item{\textbf{Supuestos: }los datos iniciales proveidos son de fiar, representan
+  las caracteristicas principales a analizar.}
+  \item{\textbf{Restricciones: }la fiabilidad del modelo nunca debe bajar del 90\%}
+\end{itemize}
 \subsection{Riesgos y Contingencias}
+\begin{itemize}
+  \item{\textbf{Riesgos: }} 
+  \item{\textbf{Contingencias: }}
+\end{itemize}
 \subsection{Costes y Beneficios}
 \section{Determinar los objetivos del DM}
 \subsection{Metas de Data Mining}
 \subsection{Criterios de éxito de DM}
-\section{Referencias}
+\section{Bibliografia}
 \begin{itemize}
-    \item \href{https://www.sngular.com/es/crisp-dm-fase-i-comprension-del-negocio/?authuser=0}{Metodologia CRISP-DM}
-    \item \href{https://www.datos.gov.py/search/type/dataset}{Datos abiertos paraguay}
+    \item \href{https://www.sngular.com/es/crisp-dm-fase-i-comprension-del-negocio/?authuser=0}
+    {Metodologia CRISP-DM}
+    \item \href{https://www.datos.gov.py/search/type/dataset}
+    {Conjunto de datos de insuficiencia cardiaca}
 \end{itemize}
 
 \end{document}
