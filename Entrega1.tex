@@ -1,12 +1,11 @@
 \documentclass[12pt, letterpaper, spanish]{article}
 
-\usepackage{hyperref}
-\usepackage{titling}
+\usepackage{hyperref} % para manejar hipervinculos
 \usepackage[spanish]{babel} % Para palabras en espanhol
-\usepackage{graphicx} %LaTeX package to import graphics
-\graphicspath{{images/}} %configuring the graphicx package
-\usepackage[spanish]{babel}
-\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx} % LaTeX package to import graphics
+\graphicspath{{images/}} % configuring the graphicx package
+\usepackage[spanish]{babel} % para que LaTeX corte palabras
+\usepackage[dvipsnames]{xcolor} % color en el texto
 
 \begin{document}
 % Portada
@@ -105,11 +104,14 @@ Que serviran para el entrenamiento y pruebas del modelo.
 \subsection{Costes y Beneficios}
 De acuerdo a un estudio realizado en Estados Unidos, el costo promedio por año de pacientes
 con insuficiencia cardiaca en dicho pais es de \textcolor{red}{\$18.953} de los cuales el 
-42.8\% (\$8114) son costos hospitalarios.
+42,8\% (\$8114) son costos hospitalarios.
 
 Gracias a una deteccion temprana es posible evitar que el paciente se hospitalice por 
 un cuadro avanzado de esta afeccion. Por lo que es posible reducir el costo anual a 
-\textcolor{YellowGreen}{\$8114}
+\textbf{\$18.953 * (1 - 0,428) = \textcolor{YellowGreen}{\$10.841,116}}.
+
+Esto es una reduccion del 57,2\% de los costos promedios anuales en el tratamiento.
+
 \section{Determinar los objetivos del DM}
 \subsection{Metas de Data Mining}
 \begin{itemize}
@@ -124,7 +126,7 @@ Se establecen como criterios de exito, los siguientes:
   \item{\textbf{Precision del modelo: }obtener un modelo fiable, que posea una precision de
   por lo menos el 90\% }
   \item{\textbf{Reduccion de costos medicos: }dismunir los costos de tratamientos medicos 
-  un 20\% para los pacientes}
+  un 57,2\% para los pacientes}
 \end{itemize}
 
 \section{Bibliografia}
@@ -133,7 +135,7 @@ Se establecen como criterios de exito, los siguientes:
     {Metodologia CRISP-DM}
     \item \href{https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction}
     {Conjunto de datos de insuficiencia cardiaca - \emph{kaggle}}
-    \item \href{URL}{Costo promedio anual de la insuficiencia cardiaca}
+    \item \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8730466/}{Costo promedio anual de la insuficiencia cardiaca}
 \end{itemize}
 
 \end{document}
