@@ -5,12 +5,14 @@
 \usepackage[spanish]{babel} % Para palabras en espanhol
 \usepackage{graphicx} %LaTeX package to import graphics
 \graphicspath{{images/}} %configuring the graphicx package
+\usepackage[spanish]{babel}
+\usepackage[dvipsnames]{xcolor}
 
 \begin{document}
 % Portada
 \begin{titlepage}
   \begin{center}
-      \Large{Universidad Catolica "Nuestra senhora de la Asuncion" \\
+      \Large{Universidad Catolica "Nuestra señora de la Asuncion" \\
       Facultad de ciencias y tecnologia \\
       Complementos de Informatica}
       \includegraphics[width=0.8\textwidth]{UcaLogo.jpg}
@@ -45,7 +47,11 @@ hiperlipidemia o enfermedades ya establecidas) necesitan una detección temprana
 en la cual un modelo de aprendizaje automático puede ser de gran ayuda.
 \section{Determinar objetivos del negocio}
 \subsection{Background}
+La insuficiencia cardíaca se produce cuando el músculo cardíaco no bombea sangre 
+de la manera que debería. Cuando esto sucede, la sangre a menudo retrocede y 
+el líquido se puede acumular en los pulmones, lo que causa falta de aliento.
 
+El conjunto de datos a considerar, analiza 11 caracteristicas de un total de 918 personas.
 \subsection{Objetivos del negocio}
   \begin{itemize}
     \item{\textbf{Reducción de costos de atención médica: }
@@ -59,11 +65,12 @@ en la cual un modelo de aprendizaje automático puede ser de gran ayuda.
   \end{itemize}
 \subsection{Criterios de exito del negocio}
   \begin{itemize}
-    \item{\textbf{Precision del modelo: }obtener un modelo con una fiabilidad del 90\%} 
-    \item{\textbf{Reduccion de costos: }dismunir los costos medicos un x\%}
+    \item{\textbf{Reduccion de costos: }dismunir los costos de tratamientos medicos un 20\%
+    para los pacientes}
     \item{\textbf{Impacto en la vida de los pacientes: }afectar positivamente la calidad de vida
     de los pacientes.}
   \end{itemize}
+
 \section{Valoracion de la situacion}
 \subsection{Inventario de recursos}
 Se cuenta con los siguientes datos medicos: \emph{edad, sexo, tipo de dolor en el pecho, 
@@ -85,19 +92,48 @@ Que serviran para el entrenamiento y pruebas del modelo.
 \end{itemize}
 \subsection{Riesgos y Contingencias}
 \begin{itemize}
-  \item{\textbf{Riesgos: }} 
-  \item{\textbf{Contingencias: }}
+  \item{\textbf{Riesgos: }algunas afecciones cardíacas progresivamente dejan 
+  el corazón demasiado débil o rígido como para llenarse y bombear sangre de forma apropiada. 
+  Por lo que los síntomas pueden desarrollarse lentamente. Sin embargo a veces, 
+  los síntomas de la insuficiencia cardíaca comienzan repentinamente.
+  
+  Entonces existe el riesgo de que el conjunto de datos a analizar no contemple todas
+  las variables para un analisis exacto.} 
+  \item{\textbf{Contingencias: }agregar nuevas caracteristicas relevantes al conjunto de datos,
+  ademas de incluir mas registros con el fin de tener una muestra mas grande y variada.}
 \end{itemize}
 \subsection{Costes y Beneficios}
+De acuerdo a un estudio realizado en Estados Unidos, el costo promedio por año de pacientes
+con insuficiencia cardiaca en dicho pais es de \textcolor{red}{\$18.953} de los cuales el 
+42.8\% (\$8114) son costos hospitalarios.
+
+Gracias a una deteccion temprana es posible evitar que el paciente se hospitalice por 
+un cuadro avanzado de esta afeccion. Por lo que es posible reducir el costo anual a 
+\textcolor{YellowGreen}{\$8114}
 \section{Determinar los objetivos del DM}
 \subsection{Metas de Data Mining}
+\begin{itemize}
+  \item{\textbf{Precision del modelo: }obtener un modelo fiable, que posea una precision 
+  mayor o igual al 95\% }
+  \item{\textbf{Implementación Clínica: }implementar el modelo en mas de un entorno clínico real 
+  para ayudar en la detección temprana y la gestión de la insuficiencia cardíaca.}
+\end{itemize}
 \subsection{Criterios de éxito de DM}
+Se establecen como criterios de exito, los siguientes:
+\begin{itemize}
+  \item{\textbf{Precision del modelo: }obtener un modelo fiable, que posea una precision de
+  por lo menos el 90\% }
+  \item{\textbf{Reduccion de costos medicos: }dismunir los costos de tratamientos medicos 
+  un 20\% para los pacientes}
+\end{itemize}
+
 \section{Bibliografia}
 \begin{itemize}
     \item \href{https://www.sngular.com/es/crisp-dm-fase-i-comprension-del-negocio/?authuser=0}
     {Metodologia CRISP-DM}
-    \item \href{https://www.datos.gov.py/search/type/dataset}
-    {Conjunto de datos de insuficiencia cardiaca}
+    \item \href{https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction}
+    {Conjunto de datos de insuficiencia cardiaca - \emph{kaggle}}
+    \item \href{URL}{Costo promedio anual de la insuficiencia cardiaca}
 \end{itemize}
 
 \end{document}
