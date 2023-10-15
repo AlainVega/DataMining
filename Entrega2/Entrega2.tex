@@ -1,4 +1,4 @@
-\documentclass[12pt, letterpaper, spanish]{article}
+\documentclass[12pt, letterpaper]{article}
 
 \usepackage{hyperref} % para manejar hipervinculos
 \usepackage[spanish]{babel} % Para palabras en espanhol
@@ -6,6 +6,21 @@
 \graphicspath{{../images/}} % configuring the graphicx package
 \usepackage[spanish]{babel} % para que LaTeX corte palabras
 \usepackage[dvipsnames]{xcolor} % color en el texto
+\usepackage[backend=biber,style=numeric]{biblatex} % para la bibliografia.
+\addbibresource{bibliografia.bib} % incluir el .bib
+\hypersetup{ % configuracion de los hiper vinculos
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+    citecolor=black, 
+    pdftitle={Redes neuronales},
+    pdfpagemode=FullScreen,
+}
+\usepackage{csquotes} % para que los textos citados esten con tipografia de acuerdo con las reglas de csquotes
+\setcounter{biburlnumpenalty}{9000} % Para el line breaker en URL con numeros (que tambien afecta a la bibliografia)
+\setcounter{biburllcpenalty}{9000} % Para el line breaker en URL con letras minuculas (que tambien afecta a la bibliografia)
+\setcounter{biburlucpenalty}{9000} % Para el line breaker en URL con letras mayusculas (que tambien afecta a la bibliografia)
 
 \begin{document}
 % Portada
@@ -27,10 +42,81 @@
       \hfill{16 de Octubre del 2023}
 \end{titlepage}
 
+
 \newpage
 \tableofcontents % indice
 \newpage
 
 % Contenidos
+\section{Datos a utilizar}
+Los datos a utilizar en el proyecto sera un archivo .csv 
+(\textit{Comma Separated Values}) llamado \textit{heart.csv} 
+que se obtuvo de la plataforma web \textit{Kaggle} \cite{dataset}
+el cual de inicio contiene 12 columnas, las cuales:
+\begin{enumerate}
+    \item{\textbf{\textit{Age}}. edad del paciente} 
+    \item{\textbf{\textit{Sex}}. sexo del paciente, donde:
+    \begin{itemize}
+        \item{\textbf{M}}: Masculino
+        \item{\textbf{F}}: Femenino
+    \end{itemize}
+    }
+    \item{\textbf{\textit{ChestPain}}. tipo de dolor en el pecho el cual puede ser: 
+    \begin{itemize}
+        \item{\textbf{TA}}: \textit{Typical Angina}
+        \item{\textbf{ATA}}: \textit{Atypical Angina}
+        \item{\textbf{NAP}}: \textit{Non-Anginal Pain}
+        \item{\textbf{ASY}}: \textit{Asymptomatic}
+    \end{itemize}
+    }
+    \item{\textbf{\textit{RestingBP}}. presión arterial en reposo 
+    medido en mililitros de mercurio [mmHg]}
+    \item{\textbf{\textit{Cholesterol}}. Colesterol serico 
+    medido en miligramos por decilitro de sangre [mm/dl]}
+    \item{\textbf{\textit{FastingBS}}. azúcar en sangre en ayunas
+    medido en miligramos por decilitro [mg/dl]}
+    \item{\textbf{\textit{RestingECG}}. resultados del electrocardiograma 
+    en reposo, puede ser:
+    \begin{itemize}
+        \item{\textbf{Normal}}: normal
+        \item{\textbf{ST}}: tener anomalía de la onda ST-T 
+        (inversiones de la onda T y/o elevación o depresión del ST \(>\) 0,05 mV)
+        \item{\textbf{LVH}}: muestra probable o definitiva hipertrofia ventricular 
+        izquierda según los criterios de Estes
+    \end{itemize}
+    } 
+    \item{\textbf{\textit{MaxHR}}. frecuencia cardíaca máxima alcanzada
+    medido en pulsaciones por minuto [ppm]}
+    \item{\textbf{\textit{ExerciseAngina}}. angina inducida por el ejercicio, puede ser:
+    \begin{itemize}
+        \item{\textbf{Y}}: Si
+        \item{\textbf{N}}: No
+    \end{itemize}
+    }
+    \item{\textbf{\textit{OldPeak}}. pico antiguo = ST}
+    \item{\textbf{\textit{ST\_Slope}}. pendiente del segmento ST 
+    durante un ejercicio físico máximo en una prueba de 
+    esfuerzo cardíaco. Puede ser:
+    \begin{itemize}
+        \item{\textbf{Up}}: ascendente
+        \item{\textbf{Flat}}: plano
+        \item{\textbf{Down}}: descendente
+    \end{itemize}
+    }
+    \item{\textbf{\textit{HeartDisease}}. sufrio de insuficiencia cardiaca
+    \begin{itemize}
+        \item{\textbf{1}}: insuficiencia cardiaca
+        \item{\textbf{0}}: normal
+    \end{itemize}
+    }
+\end{enumerate}
+\section{Analisis exploratorio}
+\subsection{Missing values}
+\subsection{Ruidos y anomalias}
+\subsection{Redundancia}
+\subsection{Correlacion}
+\section{Conclusiones}
+
+\printbibliography
 
 \end{document}
