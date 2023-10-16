@@ -177,15 +177,41 @@ el cual de inicio contiene 12 columnas, las cuales:
 \end{enumerate}
 El \textit{dataset} dispone de 918 muestras en total para ser analizadas.
 \section{Analisis exploratorio}
-En esta seccion se realizara un analisis exploratorio al \textit{datset} con el fin de cubrir:
+En esta seccion se realizara un analisis exploratorio al \textit{datset} 
+con la plataforma Knime, con el fin de cubrir:
 
 \subsection{Missing values}
 El \textit{dataset} no posee valores nulos en ningun registro.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1]{missing_values.jpg}
+    \caption{Missing values en el dataset heart.csv}
+    \label{fig:missing_values}
+\end{figure}
 
 \subsection{Ruidos y anomalias}
+
+Un ruido es un valor imposible, que no tiene santido.
+
+Una anomalia es un valor posible cuya probabilidad de aparicion es significativamente baja.
+
+\subsubsection{Ruidos}
+En la columa \textit{RestingBP} se encontro un registro cuyo valor es 0, cosa que es imposible.
+
+En la columa \textit{Cholesterol} se encontro un registro cuyo valor es 0, cosa que es imposible.
+
+\subsubsection{Anomalias}
+En la columa \textit{Cholesterol} se encontro varios registro cuyo valor es mayor a 400.
+
+
 \subsection{Redundancia}
-No se encontraron valores o campos redundantes.
+La redundancia a nivel de datos en un conjunto de datos hace referencia a que 2 o mas datos
+presentan la misma informacion.
+
+Durante la exploracion no se encontraron valores o campos redundantes
+misma informacion
 \subsection{Correlacion}
+La correlacion de datos muestra que tanto impacta un dato en el otro, que tan relacionados estan.
 
 \section{Conclusiones}
 
