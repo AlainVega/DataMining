@@ -181,7 +181,13 @@ En esta seccion se realizara un analisis exploratorio al \textit{datset}
 con la plataforma Knime, con el fin de cubrir:
 
 \subsection{Missing values}
-El \textit{dataset} no posee valores nulos en ningun registro.
+Un valor faltante puede significar varias cosas diferentes. 
+Quizás el campo no era aplicable, el evento no ocurrió o los datos no estaban disponibles. 
+Podría ser que la persona que ingresó los datos no conocía el valor correcto o no le importaba 
+si un campo no estaba completado. \cite{missin_values}
+
+El \textit{dataset} no posee valores faltantes en ningun registro, como lo muestra la figura
+\ref{fig:missing_values}
 \begin{figure}[h]
     \centering
     \includegraphics[scale=1]{missing_values.jpg}
@@ -191,9 +197,12 @@ El \textit{dataset} no posee valores nulos en ningun registro.
 
 \subsection{Ruidos y anomalias}
 
-Un ruido es un valor imposible, que no tiene santido.
+Un ruido es un dato o un conjunto de datos que agregan informacion sin sentido a la muestra.
+\cite{ruido}
 
-Una anomalia es un valor posible cuya probabilidad de aparicion es significativamente baja.
+Un valor atípico o dato anomali (\textit{outlier}, en inglés) 
+es una observación que numéricamente es muy distinta al resto de elementos de una muestra.
+\cite{anomalia}
 
 \subsubsection{Ruidos}
 En la columa \textit{RestingBP} se encontro un registro cuyo valor es 0, cosa que es imposible.
@@ -201,7 +210,7 @@ En la columa \textit{RestingBP} se encontro un registro cuyo valor es 0, cosa qu
 En la columa \textit{Cholesterol} se encontro un registro cuyo valor es 0, cosa que es imposible.
 
 \subsubsection{Anomalias}
-En la columa \textit{Cholesterol} se encontro varios registro cuyo valor es mayor a 400.
+En la columa \textit{Cholesterol} se encontraron varios registros cuyos valores son mayores a 400.
 
 
 \subsection{Redundancia}
@@ -211,10 +220,12 @@ presentan la misma informacion.
 Durante la exploracion no se encontraron valores o campos redundantes
 misma informacion
 \subsection{Correlacion}
-La correlacion de datos muestra que tanto impacta un dato en el otro, que tan relacionados estan.
-
+La correlación mide la fuerza de la relación entre dos variables. 
+Proporciona una idea de cómo se relacionan las variables y cómo se afectan entre sí. 
+\cite{correlacion}
 \section{Conclusiones}
 
+\newpage
 \printbibliography
 
 \end{document}
