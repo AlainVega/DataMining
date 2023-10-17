@@ -218,12 +218,43 @@ La redundancia a nivel de datos en un conjunto de datos hace referencia a que 2 
 presentan la misma informacion.
 
 Durante la exploracion no se encontraron valores o campos redundantes
-misma informacion
-\subsection{Correlacion}
+misma informacion, esto se visualizara mejor a continuacion.
+\subsubsection{Correlacion}
 La correlación mide la fuerza de la relación entre dos variables. 
 Proporciona una idea de cómo se relacionan las variables y cómo se afectan entre sí. 
 \cite{correlacion}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=1]{correlacion.png}
+    \caption{Matriz de correlacion en el dataset heart.csv}
+    \label{fig:correlacion}
+\end{figure}
+
+Las correlaciones de datos se pueden visualizar en la figura \ref{fig:correlacion}.
+
+
+La correlacion mas fuerte en el conjunto de datos se da entre las 
+columnas: \textit{heartDisease, ST\_Slope} con valor de -59.19\%.
+Como el maximo valor no llega siquiera al 60\% se deduce que no se disponen de datos redundantes.
+
+\newpage
 \section{Conclusiones}
+En resumen, la exploracion de los datos realizada indica que:
+\begin{itemize}
+    \item{La muestra esta a salvo de los \textit{missing values}}
+    \item{Existen anomalias en los datos, especificamente en la columna \textit{Cholesterol}.}
+    \item{Existen ruidos en la muestra, precisamente en las columnas: \textit{RestingBP}
+    y \textit{Cholesterol}.}
+    \item{Se considera que no existen redundancias a nivel de datos ya que la correlacion
+    de los mismos no superan siquiera el 60\%}
+    \item{No se cuenta con excesiva cantidad de datos, por lo que se debe ser cuidadoso
+    al momento de la limpieza, quiza borrar registros no sea una opcion.}
+\end{itemize}
+Estos hallazgos subrayan la necesidad de un abordaje preciso y especialmente cuidadoso 
+sobre las anomalías y ruidos dectectados para asi garantizar la calidad de los datos, 
+esto resalta la significativa complejidad de las relaciones entre los mismos. 
+Los resultados obtenidos en la presente fase orientarán la subsiguiente fase.
 
 \newpage
 \printbibliography
