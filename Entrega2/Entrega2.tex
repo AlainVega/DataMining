@@ -21,7 +21,6 @@
 \setcounter{biburlnumpenalty}{9000} % Para el line breaker en URL con numeros (que tambien afecta a la bibliografia)
 \setcounter{biburllcpenalty}{9000} % Para el line breaker en URL con letras minuculas (que tambien afecta a la bibliografia)
 \setcounter{biburlucpenalty}{9000} % Para el line breaker en URL con letras mayusculas (que tambien afecta a la bibliografia)
-\usepackage{float}
 
 \begin{document}
 % Portada
@@ -127,7 +126,7 @@ el cual de inicio contiene 12 columnas, las cuales:
         El segmento ST representa el intervalo entre la despolarización y la repolarización 
         ventricular. \cite{ST}
 
-        \begin{figure}[h]
+        \begin{figure}
             \centering
             \includegraphics[scale=0.38]{ST_image.jpg}
             \caption{ECG de un corazon \cite{ST}}
@@ -188,7 +187,7 @@ si un campo no estaba completado. \cite{missin_values}
 
 El \textit{dataset} no posee valores faltantes en ningun registro, como lo muestra la figura
 \ref{fig:missing_values}
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[scale=1]{missing_values.jpg}
     \caption{Missing values en el dataset heart.csv}
