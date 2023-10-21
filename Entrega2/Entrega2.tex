@@ -127,12 +127,12 @@ el cual de inicio contiene 12 columnas, las cuales:
         El segmento ST representa el intervalo entre la despolarización y la repolarización 
         ventricular. \cite{ST}
 
-        % \begin{figure}[h]
-        %     \centering
-        %     \includegraphics[scale=0.38]{ST_image.jpg}
-        %     \caption{ECG de un corazon \cite{ST}}
-        %     \label{fig:ST}
-        % \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale=0.38]{ST_image.jpg}
+            \caption{ECG de un corazon \cite{ST}}
+            \label{fig:ST}
+        \end{figure}
 
         }
         \item{\textbf{LVH}: muestra probable o definitiva hipertrofia ventricular 
@@ -177,7 +177,7 @@ el cual de inicio contiene 12 columnas, las cuales:
 \end{enumerate}
 El \textit{dataset} dispone de 918 muestras en total para ser analizadas.
 \section{Analisis exploratorio}
-En esta seccion se realizara un analisis exploratorio al \textit{datset} 
+En esta seccion se realizara un analisis exploratorio al \textit{dataset} 
 con la plataforma Knime, con el fin de cubrir:
 
 \subsection{Missing values}
@@ -194,7 +194,7 @@ El \textit{dataset} no posee valores faltantes en ningun registro, como lo muest
     \caption{Missing values en el dataset heart.csv}
     \label{fig:missing_values}
 \end{figure}
-
+\newpage
 \subsection{Ruidos y anomalias}
 
 Un ruido es un dato o un conjunto de datos que agregan informacion sin sentido a la muestra.
@@ -205,13 +205,31 @@ es una observación que numéricamente es muy distinta al resto de elementos de 
 \cite{anomalia}
 
 \subsubsection{Ruidos}
-En la columa \textit{RestingBP} se encontro un registro cuyo valor es 0, cosa que es imposible.
+En la columna \textit{RestingBP} se encontro un registro cuyo valor es 0, cosa que es imposible.
+Se puede apreciar en la figura \ref{fig:presion-arterial}
 
-En la columa \textit{Cholesterol} se encontro un registro cuyo valor es 0, cosa que es imposible.
+\begin{figure}
+    \centering
+    \includegraphics[scale=1]{RestingBP.png}
+    \caption{Histograma de la presion arterial}
+    \label{fig:presion-arterial}
+\end{figure}
+
+
+En la columna \textit{Cholesterol} se encontraron una cantidad de 172 registros cuyos valores 
+son 0, cosa que es imposible. Se puede apreciar en la figura \ref{fig:colesterol}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=1]{Cholesterol.png}
+    \caption{Histograma del colesterol}
+    \label{fig:colesterol}
+\end{figure}
+
 
 \subsubsection{Anomalias}
-En la columa \textit{Cholesterol} se encontraron varios registros cuyos valores son mayores a 400.
-
+En la columna \textit{Cholesterol} se encontraron 8 registros cuyos valores son mayores a 420,
+donde se los considera anomalias. Se puede apreciar en la figura \ref{fig:colesterol}
 
 \subsection{Redundancia}
 La redundancia a nivel de datos en un conjunto de datos hace referencia a que 2 o mas datos
