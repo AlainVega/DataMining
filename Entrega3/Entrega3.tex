@@ -1,0 +1,57 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{hyperref} % para manejar hipervinculos
+\usepackage[spanish]{babel} % Para palabras en espanhol
+\usepackage{graphicx} % LaTeX package to import graphics
+\graphicspath{{../images/}} % configuring the graphicx package
+\usepackage[spanish]{babel} % para que LaTeX corte palabras
+\usepackage[dvipsnames]{xcolor} % color en el texto
+\usepackage[backend=biber,style=numeric]{biblatex} % para la bibliografia.
+\addbibresource{bibliografia.bib} % incluir el .bib
+\hypersetup{ % configuracion de los hiper vinculos
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+    citecolor=black, 
+    pdftitle={Entrega3},
+    pdfpagemode=FullScreen,
+}
+\usepackage{csquotes} % para que los textos citados esten con tipografia de acuerdo con las reglas de csquotes
+\setcounter{biburlnumpenalty}{9000} % Para el line breaker en URL con numeros (que tambien afecta a la bibliografia)
+\setcounter{biburllcpenalty}{9000} % Para el line breaker en URL con letras minuculas (que tambien afecta a la bibliografia)
+\setcounter{biburlucpenalty}{9000} % Para el line breaker en URL con letras mayusculas (que tambien afecta a la bibliografia)
+
+\begin{document}
+% Portada
+\begin{titlepage}
+  \begin{center}
+      \Large{Universidad Catolica "Nuestra señora de la Asuncion" \\
+      Facultad de ciencias y tecnologia \\
+      Complementos de Informatica}
+      \includegraphics[width=0.8\textwidth]{UcaLogo.jpg}
+      \LARGE{\textbf{Preparación y limpieza de los datos extraídos.
+      }} \\
+      \Large{Entrega 3 - Data mining}
+      \vspace{1cm}
+  \end{center}
+      \large
+      \textbf{Alumno: }Alain Vega \\
+      \textbf{Profesor: }Wilfrido Felix Inchaustti Martínez
+      \vfill
+      \hfill{19 de Noviembre del 2023}
+\end{titlepage}
+
+
+\newpage
+\tableofcontents % indice
+\newpage
+
+% Contenidos
+\section{Preparacion de los datos}
+
+\section{Diccionario de datos finales a utilizar}
+
+% \printbibliography
+
+\end{document}
