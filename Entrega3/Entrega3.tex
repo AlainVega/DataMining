@@ -49,9 +49,134 @@
 
 % Contenidos
 \section{Preparacion de los datos}
+\subsection{Tratamiento de missing values}
+\subsection{Tratamiento de ruidos}
+\subsection{Tratamiento de anomalias}
+\subsection{Manejo de variables categoricas}
+\subsection{Normalizacion}
+\subsection{Nuevas variables}
 
 \section{Diccionario de datos finales a utilizar}
+Los datos a utilizar en el proyecto sera un archivo .csv 
+(\textit{Comma Separated Values}) llamado \textit{heart.csv} 
+que se obtuvo de la plataforma web \textit{Kaggle} \cite{dataset}
+el cual de inicio contiene 12 columnas, las cuales:
+\begin{enumerate}
+    \item{\textbf{\textit{Age}}. edad del paciente} 
+    \item{\textbf{\textit{Sex}}. sexo del paciente, donde:
+    \begin{itemize}
+        \item{\textbf{M}}: Masculino
+        \item{\textbf{F}}: Femenino
+    \end{itemize}
+    }
+    \item{\textbf{\textit{ChestPain}}. tipo de dolor en el pecho, el cual puede ser: 
+    \begin{itemize}
+        \item{\textbf{TA}}: \textit{Typical Angina}, es decir angina tipica
+        \item{\textbf{ATA}}: \textit{Atypical Angina}
+        \item{\textbf{NAP}}: \textit{Non-Anginal Pain}
+        \item{\textbf{ASY}}: \textit{Asymptomatic}
+    \end{itemize}
+    La angina de pecho es un tipo de dolor de pecho causado por la reduccion del flujo
+    salguineo al corazon. El dolor a menudo se describe como un dolor constrictivo, 
+    presión, pesadez, opresión o dolor en el pecho. El paciente siente como si tuviera
+    un gran peso apoyado en el pecho. \cite{angina}
+    }
+    \item{\textbf{\textit{RestingBP}}. presión arterial en reposo (sistólica)
+    medido en mililitros de mercurio [mmHg]
+    
+    La presión arterial es una medida de la fuerza que utiliza el corazón para bombear
+    sangre por el cuerpo. Se mide en milímetros de mercurio [mmHg] y se expresa en 2 cifras:
+    \begin{itemize}
+        \item{presión sistólica: la presión cuando el corazón expulsa la sangre}
+        \item{presión diastólica: la presión cuando el corazón descansa entre latidos}
+    \end{itemize}
+    Por ejemplo, una presión arterial de \textquotedblleft{}140 sobre 90\textquotedblright{}
+    o 140/90 mmHg, significa una presión sistólica de 140 mmHg y una presión diastólica
+    de 90 mmHg. \cite{presion-arterial}
+    }
+    \item{\textbf{\textit{Cholesterol}}. Colesterol serico 
+    medido en miligramos por decilitro de sangre [mm/dl]
+    
+    El colesterol es una sustancia grasa (un lípido) presente en todas las células del organismo.
+    Los niveles de colesterol en sangre, que indican la cantidad de lípidos o grasas presentes
+    en la sangre, se expresan en miligramos por decilitro [mg/dl]
+    La sangre lleva el colesterol a las células en partículas transportadoras especiales 
+    denominadas «lipoproteínas». Dos de las lipoproteínas más importantes son:
+    \begin{itemize}
+        \item{lipoproteína de baja densidad (LDL) - tambien conocida como colesterol malo}
+        \item{lipoproteína de alta densidad (HDL) - tambien conocida como colesterol malo}
+    \end{itemize}
 
-% \printbibliography
+    El colesterol total (serico) en sangre es la suma del colesterol transportado en las 
+    partículas de LDL, HDL y otras lipoproteínas. \cite{colesterol}
+    }
+    \item{\textbf{\textit{FastingBS}}. azúcar en sangre (glucosa) en ayunas
+    medido en miligramos por decilitro [mg/dl], puede ser:
+    \begin{itemize}
+        \item{1: Si \textit{FastingBS} \(>\) 120 [mg/dl]}
+        \item{0: Caso contrario}
+    \end{itemize}
+    }
+    \item{\textbf{\textit{RestingECG}}. resultados del electrocardiograma 
+    en reposo, puede ser:
+    \begin{itemize}
+        \item{\textbf{Normal}: normal
+        
+        Indica que no se observaron anormalidades significativas en el electrocardiograma. 
+        Las ondas y complejos están dentro de los rangos normales.
+        }
+        \item{\textbf{ST}: tener anomalía de la onda ST-T 
+        (inversiones de la onda T y/o elevación o depresión del ST \(>\) 0,05 mV)
+
+        % Con la figura \ref{fig:ST}, 
+        El segmento ST es la sección plana e isoeléctrica 
+        del ECG entre el final de la onda S (el punto J) y el comienzo de la onda T.
+        El segmento ST representa el intervalo entre la despolarización y la repolarización 
+        ventricular. \cite{ST}
+
+        }
+        \item{\textbf{LVH}: muestra probable o definitiva hipertrofia ventricular 
+        izquierda según los criterios de Estes
+       
+        Se refiere a un aumento en el tamaño de las fibras miocárdicas en la cámara de bombeo 
+        cardíaca principal.
+        Esto sugiere un agrandamiento anormal del músculo del ventrículo izquierdo del corazón.
+        \cite{LVH}
+        }
+    \end{itemize}
+
+    Un ECG de diagnóstico en reposo (electrocardiograma) registra la actividad eléctrica 
+    del corazón mientras está en reposo. Proporciona información sobre su frecuencia y 
+    ritmo cardíaco y también puede mostrar si hay agrandamiento del corazón o 
+    evidencia de un ataque cardíaco previo. \cite{electrocardiograma}
+    } 
+    \item{\textbf{\textit{MaxHR}}. frecuencia cardíaca máxima alcanzada
+    medido en pulsaciones por minuto [ppm]}
+    \item{\textbf{\textit{ExerciseAngina}}. angina inducida por el ejercicio, puede ser:
+    \begin{itemize}
+        \item{\textbf{Y}}: Si
+        \item{\textbf{N}}: No
+    \end{itemize}
+    }
+    \item{\textbf{\textit{OldPeak}}. pico antiguo = ST [Valor numérico medido en depresión]}
+    \item{\textbf{\textit{ST\_Slope}}. pendiente del segmento ST 
+    durante un ejercicio físico máximo en una prueba de 
+    esfuerzo cardíaco. Puede ser:
+    \begin{itemize}
+        \item{\textbf{Up}}: ascendente
+        \item{\textbf{Flat}}: plano
+        \item{\textbf{Down}}: descendente
+    \end{itemize}
+    }
+    \item{\textbf{\textit{HeartDisease}}. sufrio de insuficiencia cardiaca
+    \begin{itemize}
+        \item{\textbf{1}}: insuficiencia cardiaca
+        \item{\textbf{0}}: normal
+    \end{itemize}
+    }
+\end{enumerate}
+El \textit{dataset} dispone de 918 muestras en total para ser analizadas.
+
+\printbibliography
 
 \end{document}
