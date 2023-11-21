@@ -39,7 +39,7 @@
       \textbf{Alumno: }Alain Vega \\
       \textbf{Profesor: }Wilfrido Felix Inchaustti Martínez
       \vfill
-      \hfill{19 de Noviembre del 2023}
+      \hfill{20 de Noviembre del 2023}
 \end{titlepage}
 
 
@@ -49,32 +49,80 @@
 
 % Contenidos
 \section{Preparacion de los datos}
+El dataset, asi como se expuso en la fase 2, no presenta muchas dificultades en cuanto a la
+calidad de los datos, esto resalta su confiabilidad para la construccion posterior de un
+modelo que ayude a la deteccion de posibles insuficiencias cardiacas.
+
 \subsection{Tratamiento de missing values}
+Un valor faltante puede significar varias cosas diferentes. 
+Quizás el campo no era aplicable, el evento no ocurrió o los datos no estaban disponibles. 
+Podría ser que la persona que ingresó los datos no conocía el valor correcto o no le importaba 
+si un campo no estaba completado. \cite{missin_values}
+
+Como se expuso en el documento de la entrega 2, en el \textit{dataset heart.csv}
+no se encuentran \textit{missing values} por lo cual el tratamiento es no hacer nada.
+
 \subsection{Tratamiento de ruidos}
+Un ruido es un dato o un conjunto de datos que agregan informacion sin sentido a la muestra.
+\cite{ruido}
+
+En las columnas \textit{RestingBP} y \textit{Cholesterol} se detectaron ruidos. 
+La estrategia empleada de abordaje consiste en reemplazar los registros ruidosos
+con el promedio de valores libre de ruido.
+
 \subsection{Tratamiento de anomalias}
+Un valor atípico o dato anomali (\textit{outlier}, en inglés) 
+es una observación que numéricamente es muy distinta al resto de elementos de una muestra.
+\cite{anomalia}
+
+En la columna \textit{Cholesterol} se detectaron anomalias, como se expuso en la entrega 2. 
+La estrategia empleada de abordaje consiste en reemplazar los registros anomalos
+con el promedio de valores libre de anomalias.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.29]{comparativa-RestingBP.png}
+    \caption{Comparativa de la distribucion del RestingBP (presion arterial), antes 
+    despues del tratamiento de rudios y anomalias}
+    \label{fig:comparativa-RestingBP}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.29]{comparativa-Cholesterol.png}
+    \caption{Comparativa de la distribucion del Cholesterol, antes 
+    despues del tratamiento de rudios y anomalias}
+    \label{fig:comparativa-Cholesterol}
+\end{figure}
+
 \subsection{Manejo de variables categoricas}
+Las columnas \textit{Sex}, \textit{ChestPain}, \textit{RestingECG}, \textit{ExerciseAngina} y
+\textit{ST\_Slope} eran de tipo string que correspondian a diferentes categorias de cada
+correspondiente concepto. 
+
 \subsection{Normalizacion}
-\subsection{Nuevas variables}
+No se aplico ninguna normalizacion al \textit{dataset} debido a la buena calidad del
+conjunto de datos.
 
 \section{Diccionario de datos finales a utilizar}
 Los datos a utilizar en el proyecto sera un archivo .csv 
 (\textit{Comma Separated Values}) llamado \textit{heart.csv} 
 que se obtuvo de la plataforma web \textit{Kaggle} \cite{dataset}
-el cual de inicio contiene 12 columnas, las cuales:
+el cual luego de la preparacion y limpieza cuenta con: 12 columnas, las cuales:
 \begin{enumerate}
     \item{\textbf{\textit{Age}}. edad del paciente} 
     \item{\textbf{\textit{Sex}}. sexo del paciente, donde:
     \begin{itemize}
-        \item{\textbf{M}}: Masculino
-        \item{\textbf{F}}: Femenino
+        \item{\textbf{0}}: Masculino
+        \item{\textbf{1}}: Femenino
     \end{itemize}
     }
     \item{\textbf{\textit{ChestPain}}. tipo de dolor en el pecho, el cual puede ser: 
     \begin{itemize}
-        \item{\textbf{TA}}: \textit{Typical Angina}, es decir angina tipica
-        \item{\textbf{ATA}}: \textit{Atypical Angina}
-        \item{\textbf{NAP}}: \textit{Non-Anginal Pain}
-        \item{\textbf{ASY}}: \textit{Asymptomatic}
+        \item{\textbf{0}}: \textit{Typical Angina}, es decir angina tipica
+        \item{\textbf{1}}: \textit{Atypical Angina}
+        \item{\textbf{2}}: \textit{Non-Anginal Pain}
+        \item{\textbf{3}}: \textit{Asymptomatic}
     \end{itemize}
     La angina de pecho es un tipo de dolor de pecho causado por la reduccion del flujo
     salguineo al corazon. El dolor a menudo se describe como un dolor constrictivo, 
@@ -120,12 +168,12 @@ el cual de inicio contiene 12 columnas, las cuales:
     \item{\textbf{\textit{RestingECG}}. resultados del electrocardiograma 
     en reposo, puede ser:
     \begin{itemize}
-        \item{\textbf{Normal}: normal
+        \item{\textbf{0}: normal
         
         Indica que no se observaron anormalidades significativas en el electrocardiograma. 
         Las ondas y complejos están dentro de los rangos normales.
         }
-        \item{\textbf{ST}: tener anomalía de la onda ST-T 
+        \item{\textbf{1}: tener anomalía de la onda ST-T 
         (inversiones de la onda T y/o elevación o depresión del ST \(>\) 0,05 mV)
 
         % Con la figura \ref{fig:ST}, 
@@ -135,7 +183,7 @@ el cual de inicio contiene 12 columnas, las cuales:
         ventricular. \cite{ST}
 
         }
-        \item{\textbf{LVH}: muestra probable o definitiva hipertrofia ventricular 
+        \item{\textbf{2}: muestra probable o definitiva hipertrofia ventricular 
         izquierda según los criterios de Estes
        
         Se refiere a un aumento en el tamaño de las fibras miocárdicas en la cámara de bombeo 
@@ -154,8 +202,8 @@ el cual de inicio contiene 12 columnas, las cuales:
     medido en pulsaciones por minuto [ppm]}
     \item{\textbf{\textit{ExerciseAngina}}. angina inducida por el ejercicio, puede ser:
     \begin{itemize}
-        \item{\textbf{Y}}: Si
-        \item{\textbf{N}}: No
+        \item{\textbf{1}}: Si
+        \item{\textbf{0}}: No
     \end{itemize}
     }
     \item{\textbf{\textit{OldPeak}}. pico antiguo = ST [Valor numérico medido en depresión]}
@@ -163,20 +211,29 @@ el cual de inicio contiene 12 columnas, las cuales:
     durante un ejercicio físico máximo en una prueba de 
     esfuerzo cardíaco. Puede ser:
     \begin{itemize}
-        \item{\textbf{Up}}: ascendente
-        \item{\textbf{Flat}}: plano
-        \item{\textbf{Down}}: descendente
+        \item{\textbf{1}}: ascendente
+        \item{\textbf{0}}: plano
+        \item{\textbf{-1}}: descendente
     \end{itemize}
     }
     \item{\textbf{\textit{HeartDisease}}. sufrio de insuficiencia cardiaca
     \begin{itemize}
-        \item{\textbf{1}}: insuficiencia cardiaca
-        \item{\textbf{0}}: normal
+        \item{\textbf{si}}: insuficiencia cardiaca
+        \item{\textbf{no}}: normal
     \end{itemize}
     }
 \end{enumerate}
 El \textit{dataset} dispone de 918 muestras en total para ser analizadas.
+La figura \ref{fig:Worflow} muestra el workflow correspondiente.
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.37]{entrega3.png}
+    \caption{Worflow en knime}
+    \label{fig:Worflow}
+\end{figure}
+
+\newpage
 \printbibliography
 
 \end{document}
